@@ -1,9 +1,6 @@
 from dataclasses import dataclass, field
-from typing import List, Optional, Literal
-from .war_pet import PetAttribute # Re-use PetAttribute from our other model
-
-# Define custom type for damage/effect types
-DamageType = Literal["Physical", "Magic", "Healing", "Buff", "N/A"]
+from typing import List, Optional
+from .common_types import PetAttribute, DamageType # <-- UPDATED IMPORT
 
 @dataclass
 class PetSkill:

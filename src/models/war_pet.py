@@ -1,27 +1,13 @@
-from dataclasses import dataclass, field
-from typing import List, Optional, Literal
-from .war_pet import PetAttribute # Re-use PetAttribute from our other model
-
-# Define custom type for damage/effect types
-DamageType = Literal["Physical", "Magic", "Healing", "Buff", "N/A"]
+from dataclasses import dataclass
+from .common_types import PetRarity, PetAttribute # <-- UPDATED IMPORT
 
 @dataclass
-class PetSkill:
+class WarPet:
     """
-    Represents a single War Pet skill, based on the 'pet_skills' table schema.
-    Captures the complex attributes needed for the Pet Optimizer.
+    Represents a single War Pet, based on the 'war_pets' table schema.
     """
-    pet_skill_id: int
-    skill_name: str
-    effect_description: str
-    damage_type: DamageType
+    pet_id: int
+    pet_name: str
+    rarity_de_facto: PetRarity
     primary_attribute: PetAttribute
-    
-    # A skill may or may not be unique to a specific pet
-    associated_pet_id: Optional[int] = None 
-    
-    damage_healing_factor: str = "" # Stored as string to handle complex values
-    
-    category: List[str] = field(default_factory=list)
-    linked_skills: List[str] = field(default_factory=list)
-    acquisition_method: List[str] = field(default_factory=list)
+    talent_skill_id: int  # Foreign key to the pet's unique talent skill
