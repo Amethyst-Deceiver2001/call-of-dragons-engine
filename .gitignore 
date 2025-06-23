@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Environment variables
+.env
+
+# OS-specific
+.DS_Store
+*.log
+*.log.*
+
+# Dependencies
+/node_modules
+/bower_components
